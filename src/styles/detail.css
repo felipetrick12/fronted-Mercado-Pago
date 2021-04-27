@@ -1,2 +1,5 @@
-div {
-justify-items: center;}
+.icon {
+    display: flex;    
+    justify-content: space-between;
+}
+

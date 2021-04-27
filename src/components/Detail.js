@@ -1,6 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router';
 import { getPhoneById } from '../selectors/getPhoneById';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronCircleLeft} from '@fortawesome/free-solid-svg-icons'
 import '../styles/detail.css'
 
 export const Detail = ({history}) => {
@@ -10,13 +12,23 @@ export const Detail = ({history}) => {
 
     const {name_product,description,url,cantidad,precio} = phone;
     
-
+    const handleClick = () => {
+        history.goBack();
+    }
     return (
         <>
       <div className="container ">
-        <h1 className="m-3" style={{ fontFamily: "georgia" }}>
-          Producto Seleccionado
+         <div className="icon">
+        <h1 className="my-4" style={{ fontFamily: "georgia" }}>
+        Producto Seleccionado
         </h1>
+         <FontAwesomeIcon 
+         className="my-4" 
+         icon={faChevronCircleLeft} 
+         onClick={handleClick}
+         style={{ fontSize :35  }}
+         /> 
+         </div>
         <div className="card mb-3">
           <div className="row g-0">
             <div className="col-md-4">
@@ -43,7 +55,6 @@ export const Detail = ({history}) => {
                   Precio: {precio}
                 </p>
                 <hr />
-
                 <button className="btn btn-primary btn-lg mx-5 my-1" >
                   Comprar
                 </button>
