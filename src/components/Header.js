@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/category.css'
 import image from '../assets/music-audio-alp-201709';
-import { Celulares } from './Celulares';
 
 export const Header = () => {
     return (
@@ -15,7 +14,6 @@ export const Header = () => {
               <h1 className="pd-billboard-header pd-util-compact-small-18">Tienda e-commerce</h1>
          </div>
          </div>
-         <Celulares />
         </div>
 
     )

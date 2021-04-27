@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch,Route, Redirect} from "react-router-dom";
-import { Header } from '../components/Header';
-import { Detail } from '../components/Detail';
+import DashboardRoute from './DashboardRoute';
 
 
 export default function AppRouter() {
@@ -10,8 +9,7 @@ export default function AppRouter() {
      <Router>
       <div>
         <Switch>
-                <Route exact path="/detail/:id" component={Detail}/>
-                <Route path="/" component={Header}/>
+                <Route path="/" component={DashboardRoute}/>
 
                 <Redirect to="/"/>
         </Switch>

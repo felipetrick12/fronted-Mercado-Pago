@@ -5,13 +5,8 @@ export const Celular = ({phone}) => {
 
     const {id,name_product,description,url,cantidad,precio} = phone;
 
-    const handleSubmit = (e)=> {
-        e.preventDefault();
-        
-    }
     return (
-        <form 
-        onSubmit={handleSubmit}
+        <div 
         className="card mt-2" style={{'width': '18rem'}}
         >
         <img src={url} className="card-img-top" alt="..."/>
@@ -31,6 +26,6 @@ export const Celular = ({phone}) => {
         to={`/detail/${id}`}>
            Comprar 
         </Link>
-      </form>
+      </div>
     )
 }
