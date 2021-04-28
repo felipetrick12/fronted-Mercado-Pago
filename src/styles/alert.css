@@ -1,0 +1,28 @@
+div .swal2-success-ring {
+    margin: left;
+}
+div .swal2-popup {
+    background-color: black;
+}
+
+.hola {
+    position: absolute;
+    margin-left:0%;
+}
+
+div .swal2-popup, 
+    .swal2-modal,
+    .swal2-icon-success,
+    .swal2-loading, 
+    .swal2-show {
+        width: 30%;
+        padding: 0%;
+        padding-bottom: 2%;
+    }
+
+div .swal2-header {
+    width: 100%;
+    padding: 0%;
+    display: flex;
+}
+
