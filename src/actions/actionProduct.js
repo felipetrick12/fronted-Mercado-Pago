@@ -7,13 +7,10 @@ export const CreatePreferencia = async ( phone , history) => {
 
     const {id,name_product,description,url,cantidad,precio} = phone;
 
-    const newprecio = precio.split(".",2);
+    const newprecio = precio.split(".",3);
     const newa = newprecio.join('')
 
-    console.log(history)
-
     try {
-
         const result = await clienteAxios.post('/api/products', {
             "id": id ,
             "name_product": name_product,
@@ -22,7 +19,6 @@ export const CreatePreferencia = async ( phone , history) => {
             "cantidad": parseInt(cantidad),
             "precio": parseInt(newa)
         } )
-        console.log(result)
         const point = result.data.producto.body.init_point;
         if(result){
             window.location.href = point; 
