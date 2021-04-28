@@ -78,7 +78,8 @@ export const Detail = ({history}) => {
 
 
     return (
-        <>
+      <>
+      <a href="/api/web/download" download>link</a>
       <div className="container ">
          <div className="icon">
         <h1 className="my-4" style={{ fontFamily: "georgia" }}>
@@ -123,7 +124,6 @@ export const Detail = ({history}) => {
                 className="btn btn-primary btn-lg mx-5 my-1" >
                   Pagar
                 </button>
-                <a href="/api/web/download" download>Download link</a>
               </div>
             </div>
           </div>
