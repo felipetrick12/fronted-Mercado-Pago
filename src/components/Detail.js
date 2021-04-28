@@ -124,6 +124,7 @@ export const Detail = ({history}) => {
             </div>
           </div>
         </div>
+       <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
       </div>
     </>
         
