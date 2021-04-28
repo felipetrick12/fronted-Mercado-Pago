@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { getPhoneById } from '../selectors/getPhoneById';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleLeft} from '@fortawesome/free-solid-svg-icons'
-import { CreatePreferencia , CreateFactura } from '../actions/actionProduct';
+import { CreatePreferencia } from '../actions/actionProduct';
 import { Link, useLocation } from "react-router-dom";
 import Swal from 'sweetalert2';
 import '../styles/detail.css';
