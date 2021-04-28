@@ -123,11 +123,7 @@ export const Detail = ({history}) => {
                 className="btn btn-primary btn-lg mx-5 my-1" >
                   Pagar
                 </button>
-                <button 
-                onClick= {handleClickFactura}
-                className="btn btn-primary btn-lg mx-5 my-1" >
-                  Factura
-                </button>
+                <a href="/api/web/download" download>Download link</a>
               </div>
             </div>
           </div>
