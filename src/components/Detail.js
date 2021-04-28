@@ -72,10 +72,7 @@ export const Detail = ({history}) => {
       CreatePreferencia(phone, history);
     }
 
-    const handleClickFactura = () => {
-      CreateFactura();
-    }
-
+  
 
     return (
       <>
