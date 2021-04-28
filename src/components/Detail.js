@@ -3,8 +3,8 @@ import { useParams } from 'react-router';
 import { getPhoneById } from '../selectors/getPhoneById';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleLeft} from '@fortawesome/free-solid-svg-icons'
-import { CreatePreferencia } from '../actions/actionProduct';
-import { useLocation } from "react-router-dom";
+import { CreatePreferencia , CreateFactura } from '../actions/actionProduct';
+import { Link, useLocation } from "react-router-dom";
 import Swal from 'sweetalert2';
 import '../styles/detail.css';
 
@@ -67,13 +67,15 @@ export const Detail = ({history}) => {
 
     const {name_product,description,url,cantidad,precio} = phone;
     
-    const handleClick = () => {
-        history.goBack();
-    }
 
     const handleClickPagar = () => {
       CreatePreferencia(phone, history);
     }
+
+    const handleClickFactura = () => {
+      CreateFactura();
+    }
+
 
     return (
         <>
@@ -82,12 +84,13 @@ export const Detail = ({history}) => {
         <h1 className="my-4" style={{ fontFamily: "georgia" }}>
         Producto Seleccionado
         </h1>
+        <Link to="/">
          <FontAwesomeIcon 
          className="my-4" 
          icon={faChevronCircleLeft} 
-         onClick={handleClick}
          style={{ fontSize :35  }}
-         /> 
+         />
+         </Link>
          </div>
         <div className="card mb-3">
           <div className="row g-0">
@@ -119,6 +122,11 @@ export const Detail = ({history}) => {
                 onClick= {handleClickPagar}
                 className="btn btn-primary btn-lg mx-5 my-1" >
                   Pagar
+                </button>
+                <button 
+                onClick= {handleClickFactura}
+                className="btn btn-primary btn-lg mx-5 my-1" >
+                  Factura
                 </button>
               </div>
             </div>

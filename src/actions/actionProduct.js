@@ -27,6 +27,19 @@ export const CreatePreferencia = async ( phone , history) => {
         }
     } catch (error) {
         console.log(error)
+        Swal.fire('Error','hable con administrador','error')
+
+    }
+
+}
+
+export const CreateFactura = async ( ) => {
+
+    try {
+        const result = await clienteAxios.get('/api/web/download')
+        console.log(result)
+    } catch (error) {
+        console.log(error)
         Swal.fire('Error','El producto no se agrego','error')
 
     }
