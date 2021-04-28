@@ -5,11 +5,6 @@ div .swal2-popup {
     background-color: black;
 }
 
-.hola {
-    position: absolute;
-    margin-left:0%;
-}
-
 div .swal2-popup, 
     .swal2-modal,
     .swal2-icon-success,
