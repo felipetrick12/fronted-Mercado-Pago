@@ -1,19 +1,72 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router';
 import { getPhoneById } from '../selectors/getPhoneById';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleLeft} from '@fortawesome/free-solid-svg-icons'
 import { CreatePreferencia } from '../actions/actionProduct';
+import { useLocation } from "react-router-dom";
+import Swal from 'sweetalert2';
 import '../styles/detail.css';
 
 export const Detail = ({history}) => {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const status = new URLSearchParams(location.search).get('collection_status')
+    if (status=== undefined){
+      console.log('no hay pagos')
+    }
+    else if(status==='approved'){
+      console.log('pago aprovado')
+
+      Swal.fire({
+        title : 'Exitoso',
+        icon : 'success',
+        cancelButtonText : false,
+        confirmButtonText : 'Aceptar',
+        html : `
+          <h4> Tipo de pago: ${new URLSearchParams(location.search).get('payment_type')} </h4>
+          <h4> Email dev: ${new URLSearchParams(location.search).get('external_reference')} </h4>
+          <h4> ID_Pago: ${new URLSearchParams(location.search).get('payment_id')} </h4>
+        `,
+      })
+    }
+    else if (status=== 'pending' || status=== 'in_process' ){
+      Swal.fire({
+        title : 'Pago Pendiente',
+        icon : 'info',
+        cancelButtonText : false,
+        confirmButtonText : 'Aceptar',
+        html : `
+          <h4> Tipo de pago: ${new URLSearchParams(location.search).get('payment_type')} </h4>
+          <h4> Email dev: ${new URLSearchParams(location.search).get('external_reference')} </h4>
+          <h4> ID_Pago: ${new URLSearchParams(location.search).get('payment_id')} </h4>
+        `,
+      })
+    }
+    else if (status=== 'failure'){
+      Swal.fire({
+        title : 'Hubo un fallo en el pago, Reintentelo',
+        icon : 'error',
+        cancelButtonText : false,
+        confirmButtonText : 'Aceptar',
+        html : `
+          <h4> Tipo de pago: ${new URLSearchParams(location.search).get('payment_type')} </h4>
+          <h4> Email dev: ${new URLSearchParams(location.search).get('external_reference')} </h4>
+          <h4> ID_Pago: ${new URLSearchParams(location.search).get('payment_id')} </h4>
+        `,
+      })
+    }
+
+    }, [location.state,location.search]);
+
 
     const { id } = useParams();
     const phone = getPhoneById(id);
 
     const {name_product,description,url,cantidad,precio} = phone;
-
-  
+    
     const handleClick = () => {
         history.goBack();
     }
@@ -21,6 +74,7 @@ export const Detail = ({history}) => {
     const handleClickPagar = () => {
       CreatePreferencia(phone, history);
     }
+
     return (
         <>
       <div className="container ">

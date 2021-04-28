@@ -5,13 +5,14 @@ import '../styles/alert.css';
 
 export const CreatePreferencia = async ( phone , history) => {
 
-    const {name_product,description,url,cantidad,precio} = phone;
+    const {id,name_product,description,url,cantidad,precio} = phone;
 
     const newprecio = precio.split(".",3);
     const newa = newprecio.join('')
 
     try {
         const result = await clienteAxios.post('/api/products', {
+            "id": id,
             "name_product": name_product,
             "description" : description,
             "url": url,

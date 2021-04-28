@@ -10,7 +10,7 @@ div .swal2-popup,
     .swal2-icon-success,
     .swal2-loading, 
     .swal2-show {
-        width: 30%;
+        width: 50%;
         padding: 0%;
         padding-bottom: 2%;
     }
