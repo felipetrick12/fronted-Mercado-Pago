@@ -1,8 +1,7 @@
 import { clienteAxios } from "../config/axios";
 import Swal from "sweetalert2";
 import '../styles/alert.css';
-import { Redirect } from "react-router";
-import { Link } from "react-router-dom";
+
 
 export const CreatePreferencia = async ( phone , history) => {
 
